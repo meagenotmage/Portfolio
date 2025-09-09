@@ -1,0 +1,320 @@
+/* About Section Styles */
+.about {
+  background: var(--white);
+  position: relative;
+}
+
+.section-icon {
+  margin-right: 0.5rem;
+  color: var(--primary-green);
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, var(--soft-green), transparent);
+  opacity: 0.3;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.about-text {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.about-intro h3 {
+  font-size: 1.8rem;
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.about-intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--medium-gray);
+  margin-bottom: 1.5rem;
+}
+
+.about-intro strong {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+.education-info {
+  margin-top: 2rem;
+}
+
+.education-info h4 {
+  font-size: 1.4rem;
+  color: var(--dark-gray);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.education-card {
+  background: linear-gradient(135deg, var(--soft-green), var(--white));
+  border-radius: 15px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-green);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+  transition: all 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+.education-content h5 {
+  font-size: 1.2rem;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.university {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.year, .section {
+  font-size: 0.95rem;
+  color: var(--medium-gray);
+  margin-bottom: 0.2rem;
+}
+
+/* Personality Section */
+.about-visual {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.personality-grid h4 {
+  font-size: 1.4rem;
+  color: var(--dark-gray);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.traits-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.trait-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  animation: fadeInUp 0.6s ease-out;
+  animation-delay: var(--delay);
+  animation-fill-mode: both;
+}
+
+.trait-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-green);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+}
+
+.trait-icon {
+  font-size: 2rem;
+  color: var(--primary-green);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.trait-card h5 {
+  font-size: 1rem;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.trait-card p {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  line-height: 1.4;
+}
+
+/* Hobbies Section */
+.hobbies-section {
+  margin-bottom: 4rem;
+}
+
+.hobbies-section h4 {
+  font-size: 1.8rem;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.hobby-card {
+  background: linear-gradient(135deg, var(--white), var(--soft-green));
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+  animation-delay: var(--delay);
+  animation-fill-mode: both;
+}
+
+.hobby-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(76, 175, 80, 0.2);
+}
+
+.hobby-icon {
+  font-size: 3rem;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.hobby-card h5 {
+  font-size: 1.2rem;
+  color: var(--primary-green);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.hobby-card p {
+  font-size: 1rem;
+  color: var(--medium-gray);
+  line-height: 1.6;
+}
+
+/* Fun Facts Section */
+.fun-facts {
+  background: linear-gradient(135deg, var(--soft-green), var(--white));
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-top: 2rem;
+}
+
+.fun-facts h4 {
+  font-size: 1.8rem;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.facts-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.fact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.fact-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
+}
+
+.fact-icon {
+  font-size: 2rem;
+  color: var(--primary-green);
+  flex-shrink: 0;
+}
+
+.fact-item p {
+  font-size: 1rem;
+  color: var(--medium-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .traits-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .traits-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-intro h3 {
+    font-size: 1.5rem;
+  }
+
+  .hobbies-section h4,
+  .fun-facts h4 {
+    font-size: 1.5rem;
+  }
+
+  .fun-facts {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .trait-card,
+  .hobby-card {
+    padding: 1.2rem;
+  }
+
+  .trait-icon,
+  .hobby-icon {
+    font-size: 1.8rem;
+  }
+
+  .fact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .fact-icon {
+    font-size: 1.5rem;
+  }
+}
