@@ -1,8 +1,16 @@
 import React from 'react';
-import { FaGraduationCap, FaUser, FaHeart, FaGamepad, FaPlane, FaBicycle, FaCamera, FaFilm, FaPuzzlePiece, FaStar } from 'react-icons/fa';
+import { FaGraduationCap, FaUser, FaHeart, FaGamepad, FaPlane, FaBicycle, FaCamera, FaPuzzlePiece, FaStar } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 import './About.css';
 
 const About = () => {
+  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.2, triggerOnce: false });
+  const [introRef, introVisible] = useScrollAnimation({ threshold: 0.2, delay: 200, triggerOnce: false });
+  const [educationRef, educationVisible] = useScrollAnimation({ threshold: 0.2, delay: 400, triggerOnce: false });
+  const [personalityRef, personalityVisible] = useScrollAnimation({ threshold: 0.1, delay: 600, triggerOnce: false });
+  const [hobbiesRef, hobbiesVisible] = useScrollAnimation({ threshold: 0.3, delay: 800, triggerOnce: false });
+  const [uniqueRef, uniqueVisible] = useScrollAnimation({ threshold: 0.1, delay: 1000, triggerOnce: false });
+
   const personalityTraits = [
     { icon: <FaUser />, trait: 'Carefree', description: 'I approach life with a relaxed attitude' },
     { icon: <FaHeart />, trait: 'Happy Go Lucky', description: 'Always looking on the bright side' },
@@ -21,48 +29,48 @@ const About = () => {
   return (
     <section id="about" className="about section">
       <div className="container">
-        <h2 className="section-title">About Me</h2>
-        <p className="section-subtitle">
-          Get to know the person behind the code - my journey, personality, and what drives me
-        </p>
+        <div ref={titleRef} className={`slide-up ${titleVisible ? 'visible' : ''}`}>
+          <h2 className="section-title">About Me</h2>
+          <p className="section-subtitle">
+            Discover my journey, personality, and passion for technology
+          </p>
+        </div>
 
         <div className="about-content">
-          <div className="about-text">
+          <div ref={introRef} className={`about-text slide-up ${introVisible ? 'visible' : ''}`}>
             <div className="about-intro">
-              <h3><FaUser className="section-icon" /> Hello! I'm a passionate BSCS student</h3>
+              <h3><FaUser className="section-icon" /> Who I Am</h3>
+              <p className="intro-highlight">
+                A passionate Computer Science student with a perfect blend of technical skills and creative vision.
+              </p>
               <p>
                 Currently in my 3rd year at <strong>West Visayas State University</strong>, 
-                pursuing a Bachelor of Science in Computer Science. I'm someone who believes 
-                in balancing hard work with a carefree spirit - planning my goals while staying 
-                flexible enough to embrace new opportunities that come my way.
+                I'm pursuing my Bachelor's degree in Computer Science with enthusiasm and dedication. 
+                What sets me apart is my unique approach to life - I believe in maintaining an organized, 
+                goal-oriented mindset while staying flexible and open to new opportunities.
               </p>
               <p>
-                My journey in tech started with curiosity and has grown into a genuine passion 
-                for creating digital solutions. Whether I'm coding a new project, capturing 
-                moments through my camera lens, or editing videos, I bring the same organized 
-                yet creative approach to everything I do.
+                My journey in technology began with curiosity and has evolved into a genuine passion 
+                for creating meaningful digital solutions. Whether I'm developing applications, 
+                capturing moments through photography, or editing compelling videos, I approach 
+                every project with the same level of creativity and attention to detail.
               </p>
-            </div>
-
-            <div className="education-info">
-              <h4><FaGraduationCap className="section-icon" /> Education</h4>
-              <div className="education-card">
-                <div className="education-content">
-                  <h5>Bachelor of Science in Computer Science</h5>
-                  <p className="university">West Visayas State University</p>
-                  <p className="year">3rd Year Student (2022-2026)</p>
-                  <p className="section">Section: 3A</p>
-                </div>
-              </div>
             </div>
           </div>
 
           <div className="about-visual">
-            <div className="personality-grid">
-              <h4><FaStar className="section-icon" /> My Personality</h4>
+            <div ref={personalityRef} className={`personality-grid slide-up ${personalityVisible ? 'visible' : ''}`}>
+              <h4><FaStar className="section-icon" /> Personal Qualities</h4>
+              <p className="personality-intro">
+                The unique traits that define who I am and how I approach challenges
+              </p>
               <div className="traits-container">
                 {personalityTraits.map((trait, index) => (
-                  <div key={index} className="trait-card" style={{'--delay': `${index * 0.1}s`}}>
+                  <div 
+                    key={index} 
+                    className={`trait-card slide-up stagger-animation ${personalityVisible ? 'visible' : ''}`}
+                    style={{'--animation-delay': `${index * 0.1}s`}}
+                  >
                     <div className="trait-icon">{trait.icon}</div>
                     <h5>{trait.trait}</h5>
                     <p>{trait.description}</p>
@@ -73,11 +81,55 @@ const About = () => {
           </div>
         </div>
 
-        <div className="hobbies-section">
-          <h4><FaHeart className="section-icon" /> When I'm Not Coding</h4>
+        {/* Education Section - Full Width */}
+        <div ref={educationRef} className={`education-section slide-up ${educationVisible ? 'visible' : ''}`}>
+          <h3><FaGraduationCap className="section-icon" /> Academic Background</h3>
+          <div className="education-card">
+            <div className="education-header">
+              <div className="degree-icon">
+                <FaGraduationCap />
+              </div>
+              <div className="education-details">
+                <h5>Bachelor of Science in Computer Science</h5>
+                <p className="university">West Visayas State University</p>
+              </div>
+            </div>
+            <div className="education-meta">
+              <div className="meta-item">
+                <span className="meta-label">Current Level</span>
+                <span className="meta-value">3rd Year</span>
+              </div>
+              <div className="meta-item">
+                <span className="meta-label">Section</span>
+                <span className="meta-value">3A</span>
+              </div>
+              <div className="meta-item">
+                <span className="meta-label">Academic Period</span>
+                <span className="meta-value">2022 - 2026</span>
+              </div>
+            </div>
+            <div className="education-progress">
+              <div className="progress-label">Academic Journey Progress</div>
+              <div className="progress-bar">
+                <div className="progress-fill" style={{'--progress': '75%'}}></div>
+              </div>
+              <span className="progress-text">75% Complete</span>
+            </div>
+          </div>
+        </div>
+
+        <div ref={hobbiesRef} className={`hobbies-section slide-up ${hobbiesVisible ? 'visible' : ''}`}>
+          <h3><span className="section-icon" /> Beyond the Code</h3>
+          <p className="hobbies-intro">
+            When I'm not immersed in programming, these activities fuel my creativity and keep me balanced
+          </p>
           <div className="hobbies-grid">
             {hobbies.map((hobby, index) => (
-              <div key={index} className="hobby-card" style={{'--delay': `${index * 0.2}s`}}>
+              <div 
+                key={index} 
+                className={`hobby-card slide-up stagger-animation ${hobbiesVisible ? 'visible' : ''}`}
+                style={{'--animation-delay': `${index * 0.2}s`}}
+              >
                 <div className="hobby-icon">{hobby.icon}</div>
                 <h5>{hobby.hobby}</h5>
                 <p>{hobby.description}</p>
@@ -86,20 +138,32 @@ const About = () => {
           </div>
         </div>
 
-        <div className="fun-facts">
-          <h4><FaStar className="section-icon" /> Fun Facts About Me</h4>
+        <div ref={uniqueRef} className={`fun-facts slide-up ${uniqueVisible ? 'visible' : ''}`} style={{'--animation-delay': '0.2s'}}>
+          <h3><FaStar className="section-icon" /> What Makes Me Unique</h3>
+          <p className="facts-intro">
+            A few interesting things that showcase my diverse interests and approach to life
+          </p>
           <div className="facts-grid">
             <div className="fact-item">
               <FaCamera className="fact-icon" />
-              <p>I capture life through photography and bring stories to life through video editing</p>
+              <div className="fact-content">
+                <h6>  Visual Storyteller</h6>
+                <p>I capture life through photography and bring narratives to life through video editing</p>
+              </div>
             </div>
             <div className="fact-item">
               <FaPuzzlePiece className="fact-icon" />
-              <p>I love solving problems - whether it's debugging code or planning my next adventure</p>
+              <div className="fact-content">
+                <h6>  Problem Solver</h6>
+                <p>Whether debugging complex code or planning adventures, I love tackling challenges systematically</p>
+              </div>
             </div>
             <div className="fact-item">
               <FaStar className="fact-icon" />
-              <p>My motto: Stay organized, keep smiling, and always be ready for the next opportunity</p>
+              <div className="fact-content">
+                <h6>  Life Philosophy</h6>
+                <p>Stay organized, maintain positivity, and always be ready to embrace new opportunities</p>
+              </div>
             </div>
           </div>
         </div>

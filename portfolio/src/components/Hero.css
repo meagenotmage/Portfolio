@@ -203,7 +203,37 @@
   height: 300px;
 }
 
-.profile-circle {
+.profile-image-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+  animation: gentlePulse 1.5s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+/* Fallback styles for the icon */
+.profile-circle.fallback-icon {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -213,7 +243,7 @@
   justify-content: center;
   position: relative;
   box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
-  animation: pulse 3s ease-in-out infinite;
+  animation: gentlePulse 2.5s ease-in-out infinite;
 }
 
 .inner-circle {
@@ -226,20 +256,40 @@
   justify-content: center;
 }
 
-.profile-icon {
+.profile-icon-fallback {
   font-size: 6rem;
   color: var(--primary-green);
   animation: bounce 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes gentlePulse {
   0%, 100% {
     transform: scale(1);
     box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
   }
   50% {
-    transform: scale(1.05);
-    box-shadow: 0 25px 50px rgba(76, 175, 80, 0.4);
+    transform: scale(1.025);
+    box-shadow: 0 23px 46px rgba(76, 175, 80, 0.37);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1) !important;
+    box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+  }
+  50% {
+    transform: scale(1.12) !important;
+    box-shadow: 0 35px 70px rgba(76, 175, 80, 0.6);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
   }
 }
 
@@ -375,7 +425,7 @@
     height: 230px;
   }
 
-  .profile-icon {
+  .profile-icon-fallback {
     font-size: 4rem;
   }
 }
@@ -426,7 +476,7 @@
     height: 180px;
   }
 
-  .profile-icon {
+  .profile-icon-fallback {
     font-size: 3rem;
   }
 

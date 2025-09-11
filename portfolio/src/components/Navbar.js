@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="container">
         <div className="nav-content">
           <div className="logo" onClick={() => scrollToSection('hero')}>
-            <span className="logo-text">Portfolio</span>
+            <span className="logo-text">Meage</span>
             <span className="logo-dot">.</span>
           </div>
 

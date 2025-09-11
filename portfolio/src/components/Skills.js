@@ -5,10 +5,15 @@ import {
   FaGitAlt, FaFigma, FaCamera, FaVideo
 } from 'react-icons/fa';
 import { SiMysql, SiMongodb, SiCplusplus, SiVscodium, SiAdobecreativecloud } from 'react-icons/si';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 import './Skills.css';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('programming');
+  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.2, triggerOnce: false });
+  const [categoriesRef, categoriesVisible] = useScrollAnimation({ threshold: 0.2, delay: 200, triggerOnce: false });
+  const [skillsRef, skillsVisible] = useScrollAnimation({ threshold: 0.1, delay: 400, triggerOnce: false });
+  const [softSkillsRef, softSkillsVisible] = useScrollAnimation({ threshold: 0.1, delay: 600, triggerOnce: false });
 
   const skillCategories = {
     programming: {
@@ -65,14 +70,16 @@ const Skills = () => {
   return (
     <section id="skills" className="skills section">
       <div className="container">
-        <h2 className="section-title">Skills & Expertise</h2>
-        <p className="section-subtitle">
-          A showcase of my technical abilities, creative talents, and the tools I use to bring ideas to life
-        </p>
+        <div ref={titleRef} className={`slide-up ${titleVisible ? 'visible' : ''}`}>
+          <h2 className="section-title">Skills & Expertise</h2>
+          <p className="section-subtitle">
+            A showcase of my technical abilities, creative talents, and the tools I use to bring ideas to life
+          </p>
+        </div>
 
         {/* Technical Skills */}
         <div className="technical-skills">
-          <div className="skills-navigation">
+          <div ref={categoriesRef} className={`skills-navigation slide-up ${categoriesVisible ? 'visible' : ''}`}>
             {Object.entries(skillCategories).map(([key, category]) => (
               <button
                 key={key}
@@ -85,13 +92,13 @@ const Skills = () => {
             ))}
           </div>
 
-          <div className="skills-content">
+          <div ref={skillsRef} className={`skills-content slide-up ${skillsVisible ? 'visible' : ''}`}>
             <div className="skills-grid">
               {skillCategories[activeCategory].skills.map((skill, index) => (
                 <div 
                   key={skill.name} 
-                  className="skill-card"
-                  style={{'--delay': `${index * 0.1}s`, '--color': skill.color}}
+                  className={`skill-card slide-up stagger-animation ${skillsVisible ? 'visible' : ''}`}
+                  style={{'--animation-delay': `${index * 0.1}s`, '--color': skill.color}}
                 >
                   <div className="skill-header">
                     <span className="skill-icon">{skill.icon}</span>
@@ -114,7 +121,7 @@ const Skills = () => {
         </div>
 
         {/* Soft Skills */}
-        <div className="soft-skills">
+        <div ref={softSkillsRef} className={`soft-skills slide-up ${softSkillsVisible ? 'visible' : ''}`}>
           <h3 className="soft-skills-title">
             <FaStar className="title-icon" />
             Soft Skills & Personal Qualities
@@ -124,8 +131,8 @@ const Skills = () => {
             {softSkills.map((item, index) => (
               <div 
                 key={item.skill} 
-                className="soft-skill-card"
-                style={{'--delay': `${index * 0.1}s`}}
+                className={`soft-skill-card slide-up stagger-animation ${softSkillsVisible ? 'visible' : ''}`}
+                style={{'--animation-delay': `${index * 0.1}s`}}
               >
                 <h4>{item.skill}</h4>
                 <p>{item.description}</p>

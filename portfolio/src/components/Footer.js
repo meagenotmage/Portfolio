@@ -5,9 +5,16 @@ import {
   FaEnvelope, FaHandPeace, FaCoffee
 } from 'react-icons/fa';
 import './Footer.css';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  // Animation refs
+  const [footerContentRef, footerContentVisible] = useScrollAnimation({ threshold: 0.2, triggerOnce: false });
+  const [linksRef, linksVisible] = useScrollAnimation({ threshold: 0.2, delay: 200, triggerOnce: false });
+  const [socialRef, socialVisible] = useScrollAnimation({ threshold: 0.2, delay: 400, triggerOnce: false });
+  const [copyrightRef, copyrightVisible] = useScrollAnimation({ threshold: 0.2, delay: 600, triggerOnce: false });
 
   const quickLinks = [
     { name: 'Home', href: '#hero' },
@@ -21,7 +28,6 @@ const Footer = () => {
     { name: 'GitHub', icon: <FaGithub />, url: 'https://github.com/yourusername' },
     { name: 'LinkedIn', icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourprofile' },
     { name: 'Instagram', icon: <FaInstagram />, url: 'https://instagram.com/yourusername' },
-    { name: 'Facebook', icon: <FaFacebook />, url: 'https://facebook.com/yourprofile' }
   ];
 
   const scrollToSection = (sectionId) => {
@@ -49,9 +55,9 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           {/* Footer Brand */}
-          <div className="footer-brand">
+          <div ref={footerContentRef} className={`footer-brand slide-up ${footerContentVisible ? 'visible' : ''}`}>
             <div className="footer-logo" onClick={scrollToTop}>
-              <span className="logo-text">Portfolio</span>
+              <span className="logo-text">Meage</span>
               <span className="logo-dot">.</span>
             </div>
             <p className="footer-description">
@@ -76,7 +82,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="footer-section">
+          <div ref={linksRef} className={`footer-section slide-up ${linksVisible ? 'visible' : ''}`}>
             <h3 className="footer-title">Quick Links</h3>
             <ul className="footer-links">
               {quickLinks.map(link => (
@@ -93,7 +99,7 @@ const Footer = () => {
           </div>
 
           {/* Skills Summary */}
-          <div className="footer-section">
+          <div ref={socialRef} className={`footer-section slide-up ${socialVisible ? 'visible' : ''}`}>
             <h3 className="footer-title">Tech Stack</h3>
             <div className="tech-tags">
               <span className="tech-tag">React</span>
@@ -108,7 +114,6 @@ const Footer = () => {
               <div className="creative-list">
                 <span><FaCamera /> Photography</span>
                 <span><FaVideo /> Video Editing</span>
-                <span><FaPalette /> UI/UX Design</span>
               </div>
             </div>
           </div>
@@ -144,15 +149,15 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="footer-bottom">
+        <div ref={copyrightRef} className={`footer-bottom slide-up ${copyrightVisible ? 'visible' : ''}`}>
           <div className="footer-bottom-content">
             <p className="copyright">
-              © {currentYear} Portfolio. Made with <FaHeart className="heart" /> and lots of coffee <FaCoffee />
+              © {currentYear} Meage. Made with <FaHeart className="heart" /> and lots of coffee <FaCoffee />
             </p>
             <div className="footer-info">
-              <span>Built with React & CSS</span>
+              <span>Built with Love.</span>
               <span className="separator">•</span>
-              <span>Designed with <FaHeart className="heart" /> in Iloilo</span>
+              <span>Designed with <FaHeart className="heart" /></span>
             </div>
           </div>
         </div>

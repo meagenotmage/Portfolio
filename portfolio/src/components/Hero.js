@@ -91,9 +91,32 @@ const Hero = () => {
           
           <div className="hero-image">
             <div className="image-container">
-              <div className="profile-circle">
-                <div className="inner-circle">
-                  <FaCode className="profile-icon" />
+              <div className="profile-image-wrapper">
+                <img 
+                  src={`${process.env.PUBLIC_URL}/logo.png`} 
+                  alt="Meage Sionosa - Portfolio Profile"
+                  className="profile-image"
+                  onLoad={(e) => {
+                    console.log('Image loaded successfully:', e.target.src);
+                  }}
+                  onError={(e) => {
+                    console.log('Image failed to load:', e.target.src);
+                    console.error('Image error details:', e);
+                    // Try fallback with different path
+                    if (e.target.src !== '/logo.png') {
+                      e.target.src = '/logo.png';
+                      return;
+                    }
+                    // Fallback to icon if image fails to load
+                    e.target.style.display = 'none';
+                    const fallback = e.target.nextSibling;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
+                />
+                <div className="profile-circle fallback-icon" style={{display: 'none'}}>
+                  <div className="inner-circle">
+                    <FaCode className="profile-icon-fallback" />
+                  </div>
                 </div>
               </div>
               <div className="floating-icons">

@@ -4,10 +4,15 @@ import {
   FaCheckCircle, FaTasks, FaBicycle, FaVideo, FaExternalLinkAlt,
   FaGithub, FaRocket, FaEnvelope
 } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 import './Projects.css';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
+  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.2, triggerOnce: false });
+  const [filtersRef, filtersVisible] = useScrollAnimation({ threshold: 0.2, delay: 200, triggerOnce: false });
+  const [projectsRef, projectsVisible] = useScrollAnimation({ threshold: 0.1, delay: 400, triggerOnce: false });
+  const [ctaRef, ctaVisible] = useScrollAnimation({ threshold: 0.2, delay: 600, triggerOnce: false });
 
   const projects = [
     {
@@ -111,13 +116,15 @@ const Projects = () => {
   return (
     <section id="projects" className="projects section">
       <div className="container">
-        <h2 className="section-title">My Projects</h2>
-        <p className="section-subtitle">
-          A collection of my work showcasing my technical skills, creativity, and passion for development
-        </p>
+        <div ref={titleRef} className={`slide-up ${titleVisible ? 'visible' : ''}`}>
+          <h2 className="section-title">My Projects</h2>
+          <p className="section-subtitle">
+            A collection of my work showcasing my technical skills, creativity, and passion for development
+          </p>
+        </div>
 
         {/* Project Filters */}
-        <div className="project-filters">
+        <div ref={filtersRef} className={`project-filters slide-up ${filtersVisible ? 'visible' : ''}`}>
           {filters.map(filterItem => (
             <button
               key={filterItem.key}
@@ -131,12 +138,12 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="projects-grid">
+        <div ref={projectsRef} className={`projects-grid slide-up ${projectsVisible ? 'visible' : ''}`}>
           {filteredProjects.map((project, index) => (
             <div 
               key={project.id} 
-              className="project-card"
-              style={{'--delay': `${index * 0.1}s`}}
+              className={`project-card slide-up stagger-animation ${projectsVisible ? 'visible' : ''}`}
+              style={{'--animation-delay': `${index * 0.1}s`}}
             >
               <div className="project-header">
                 <div className="project-image">
@@ -189,7 +196,7 @@ const Projects = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="projects-cta">
+        <div ref={ctaRef} className={`projects-cta slide-up ${ctaVisible ? 'visible' : ''}`}>
           <div className="cta-content">
             <h3>Interested in My Work?</h3>
             <p>

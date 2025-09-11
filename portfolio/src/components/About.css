@@ -2,11 +2,13 @@
 .about {
   background: var(--white);
   position: relative;
+  overflow: hidden;
 }
 
 .section-icon {
-  margin-right: 0.5rem;
+  margin-right: 0.8rem;
   color: var(--primary-green);
+  font-size: 1.2em;
 }
 
 .about::before {
@@ -15,34 +17,60 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 100px;
-  background: linear-gradient(to bottom, var(--soft-green), transparent);
-  opacity: 0.3;
+  height: 150px;
+  background: linear-gradient(135deg, var(--soft-green) 0%, transparent 100%);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.about .container {
+  position: relative;
+  z-index: 1;
 }
 
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 4rem;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  align-items: start;
 }
 
-.about-text {
-  animation: fadeInUp 0.8s ease-out;
+.about-intro {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(76, 175, 80, 0.1);
 }
 
 .about-intro h3 {
   font-size: 1.8rem;
   color: var(--primary-green);
   margin-bottom: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.intro-highlight {
+  font-size: 1.2rem;
+  color: var(--primary-green);
   font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  padding: 0.8rem;
+  background: var(--soft-green);
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-green);
 }
 
 .about-intro p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--medium-gray);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .about-intro strong {
@@ -50,62 +78,209 @@
   font-weight: 600;
 }
 
+.education-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--soft-green) 0%, rgba(255, 255, 255, 0.9) 100%);
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.education-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
+  border-radius: 2px 2px 0 0;
+}
+
+.education-section h3 {
+  font-size: 2rem;
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .education-info {
   margin-top: 2rem;
 }
 
 .education-info h4 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: var(--dark-gray);
   margin-bottom: 1rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
 .education-card {
-  background: linear-gradient(135deg, var(--soft-green), var(--white));
-  border-radius: 15px;
+  background: var(--white);
+  border-radius: 20px;
   padding: 1.5rem;
-  border-left: 4px solid var(--primary-green);
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+  border: 2px solid var(--soft-green);
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.1);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
 }
 
 .education-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(76, 175, 80, 0.2);
+  border-color: var(--accent-green);
 }
 
-.education-content h5 {
-  font-size: 1.2rem;
+.education-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.degree-icon {
+  background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.education-details h5 {
+  font-size: 1.3rem;
   color: var(--primary-green);
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .university {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--dark-gray);
   font-weight: 500;
-  margin-bottom: 0.3rem;
+  margin: 0;
 }
 
-.year, .section {
-  font-size: 0.95rem;
+.education-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.meta-item {
+  background: var(--soft-green);
+  padding: 0.8rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.meta-label {
+  font-size: 0.85rem;
   color: var(--medium-gray);
+  font-weight: 500;
   margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meta-value {
+  font-size: 1rem;
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+.education-progress {
+  background: var(--light-gray);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.progress-label {
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.progress-bar {
+  background: #e0e0e0;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
+  height: 100%;
+  width: var(--progress);
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: var(--primary-green);
+  font-weight: 600;
 }
 
 /* Personality Section */
 .about-visual {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(76, 175, 80, 0.1);
   animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .personality-grid h4 {
-  font-size: 1.4rem;
-  color: var(--dark-gray);
-  margin-bottom: 1.5rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  color: var(--primary-green);
+  margin-bottom: 1.2rem;
+  font-weight: 700;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.personality-intro {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 .traits-container {
@@ -117,7 +292,7 @@
 .trait-card {
   background: var(--white);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.2rem;
   text-align: center;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -155,27 +330,57 @@
 
 /* Hobbies Section */
 .hobbies-section {
-  margin-bottom: 4rem;
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, var(--soft-green) 100%);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
-.hobbies-section h4 {
-  font-size: 1.8rem;
+.hobbies-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
+  border-radius: 2px 2px 0 0;
+}
+
+.hobbies-section h3 {
+  font-size: 2rem;
   color: var(--primary-green);
   text-align: center;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hobbies-intro {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  text-align: center;
   margin-bottom: 2rem;
-  font-weight: 600;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hobbies-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .hobby-card {
   background: linear-gradient(135deg, var(--white), var(--soft-green));
   border-radius: 15px;
-  padding: 2rem;
+  padding: 1.2rem;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -191,9 +396,9 @@
 }
 
 .hobby-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--primary-green);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   animation: bounce 2s ease-in-out infinite;
 }
 
@@ -212,51 +417,136 @@
 
 /* Fun Facts Section */
 .fun-facts {
-  background: linear-gradient(135deg, var(--soft-green), var(--white));
-  border-radius: 20px;
-  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(76, 175, 80, 0.05));
+  border-radius: 25px;
+  padding: 2rem;
   margin-top: 2rem;
+  border: 2px solid rgba(76, 175, 80, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
-.fun-facts h4 {
-  font-size: 1.8rem;
+.fun-facts::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
+}
+
+.fun-facts h3 {
+  font-size: 2.2rem;
   color: var(--primary-green);
   text-align: center;
-  margin-bottom: 2rem;
-  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.facts-intro {
+  font-size: 1.15rem;
+  color: var(--medium-gray);
+  text-align: center;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .facts-grid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .fact-item {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--white);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.fact-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(76, 175, 80, 0.03) 100%);
   transition: all 0.3s ease;
 }
 
+.fact-item:hover::before {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.08) 0%, rgba(76, 175, 80, 0.02) 100%);
+}
+
 .fact-item:hover {
-  transform: translateX(10px);
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(76, 175, 80, 0.2);
+  border-color: var(--accent-green);
 }
 
 .fact-icon {
-  font-size: 2rem;
-  color: var(--primary-green);
+  font-size: 2.2rem;
+  color: var(--white);
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+  border-radius: 18px;
   flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
 }
 
-.fact-item p {
-  font-size: 1rem;
+.fact-item:hover .fact-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.fact-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.fact-content h6 {
+  font-size: 1.4rem;
+  color: var(--dark-gray);
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--dark-gray), var(--primary-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fact-content p {
+  font-size: 1.05rem;
   color: var(--medium-gray);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -267,24 +557,83 @@
     gap: 3rem;
   }
 
+  .about-intro,
+  .about-visual {
+    padding: 2rem;
+  }
+
+  .education-section,
+  .hobbies-section {
+    padding: 2.5rem 2rem;
+    margin: 3rem 0;
+  }
+
   .traits-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
   .hobbies-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-intro,
+  .about-visual {
+    padding: 1.8rem;
+  }
+
+  .education-section,
+  .hobbies-section {
+    padding: 2rem 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .education-section h3,
+  .hobbies-section h3 {
+    font-size: 2rem;
+  }
+
+  .personality-grid h4 {
+    font-size: 1.8rem;
+  }
+
+  .about-intro h3 {
+    font-size: 1.8rem;
+  }
+
   .traits-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .about-intro h3 {
     font-size: 1.5rem;
+  }
+
+  .education-section h3 {
+    font-size: 1.6rem;
+  }
+
+  .education-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .degree-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .education-meta {
+    grid-template-columns: 1fr;
   }
 
   .hobbies-section h4,
@@ -293,7 +642,34 @@
   }
 
   .fun-facts {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .fun-facts h3 {
+    font-size: 1.8rem;
+  }
+
+  .fact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.2rem;
+    padding: 1.5rem;
+  }
+
+  .fact-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    margin: 0 auto;
+  }
+
+  .fact-content h6 {
+    font-size: 1.2rem;
+  }
+
+  .fact-content p {
+    font-size: 1rem;
   }
 }
 
@@ -306,6 +682,20 @@
   .trait-icon,
   .hobby-icon {
     font-size: 1.8rem;
+  }
+
+  .education-card {
+    padding: 1.5rem;
+  }
+
+  .degree-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .education-details h5 {
+    font-size: 1.1rem;
   }
 
   .fact-item {
