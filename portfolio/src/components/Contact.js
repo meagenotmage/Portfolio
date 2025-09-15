@@ -78,10 +78,10 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { platform: 'GitHub', icon: <FaGithub />, url: 'https://github.com/yourusername', color: '#333' },
-    { platform: 'LinkedIn', icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourprofile', color: '#0077B5' },
-    { platform: 'Instagram', icon: <FaInstagram />, url: 'https://instagram.com/yourusername', color: '#E4405F' },
-    { platform: 'Facebook', icon: <FaFacebook />, url: 'https://facebook.com/yourprofile', color: '#1877F2' }
+    { platform: 'GitHub', icon: <FaGithub />, url: 'https://github.com/meagenotmage', color: '#333' },
+    { platform: 'LinkedIn', icon: <FaLinkedin />, url: 'https://linkedin.com/in/meagesionosa', color: '#0077B5' },
+    { platform: 'Instagram', icon: <FaInstagram />, url: 'https://www.instagram.com/meagenotmage/', color: '#E4405F' },
+    { platform: 'Facebook', icon: <FaFacebook />, url: 'https://www.facebook.com/meage.sionosa', color: '#1877F2' }
   ];
 
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaHandPaper, FaCode, FaCamera, FaGamepad, FaBicycle, FaPlane, FaRocket, FaEnvelope } from 'react-icons/fa';
+import { FaHandPaper, FaCode, FaCamera, FaGamepad, FaBicycle, FaPlane, FaRocket, FaEnvelope, FaNewspaper, FaRegHandPaper, FaPaperclip } from 'react-icons/fa';
 import './Hero.css';
 
 const Hero = () => {
@@ -68,8 +68,8 @@ const Hero = () => {
                 View My Work
               </button>
               <button onClick={scrollToContact} className="btn btn-outline">
-                <FaEnvelope className="btn-icon" />
-                Get In Touch
+                <FaPaperclip className="btn-icon" />
+                View Resume
               </button>
             </div>
             
