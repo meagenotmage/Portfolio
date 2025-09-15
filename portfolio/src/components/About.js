@@ -81,39 +81,84 @@ const About = () => {
           </div>
         </div>
 
-        {/* Education Section - Full Width */}
-        <div ref={educationRef} className={`education-section slide-up ${educationVisible ? 'visible' : ''}`}>
-          <h3><FaGraduationCap className="section-icon" /> Academic Background</h3>
-          <div className="education-card">
-            <div className="education-header">
-              <div className="degree-icon">
+        {/* Education Timeline - Full Width */}
+        <div ref={educationRef} className={`education-timeline slide-up ${educationVisible ? 'visible' : ''}`}>
+          <h3><FaGraduationCap className="section-icon" /> Education Background & Achievements</h3>
+          <p className="timeline-intro">My academic journey showcasing consistent excellence and dedication</p>
+          
+          <div className="timeline-container">
+            {/* University - Current */}
+            <div className={`timeline-item current slide-up ${educationVisible ? 'visible' : ''}`} 
+                 style={{'--animation-delay': '0.1s'}}>
+              <div className="timeline-marker">
                 <FaGraduationCap />
               </div>
-              <div className="education-details">
-                <h5>Bachelor of Science in Computer Science</h5>
-                <p className="university">West Visayas State University</p>
+              <div className="timeline-content">
+                <div className="timeline-period">2023 - Present</div>
+                <h4>West Visayas State University</h4>
+                <p className="institution">College of ICT - Bachelor of Science in Computer Science</p>
+                <div className="achievements">
+                  <div className="achievement-item">
+                    <FaStar className="achievement-icon" />
+                    <span>Silver Medal - 2023-2024</span>
+                  </div>
+                  <div className="achievement-item">
+                    <FaStar className="achievement-icon" />
+                    <span>Silver Medal - 2024-2025</span>
+                  </div>
+                </div>
+                <div className="timeline-status">Currently Enrolled - 3rd Year</div>
               </div>
             </div>
-            <div className="education-meta">
-              <div className="meta-item">
-                <span className="meta-label">Current Level</span>
-                <span className="meta-value">3rd Year</span>
+
+            {/* Senior High School */}
+            <div className={`timeline-item slide-up ${educationVisible ? 'visible' : ''}`} 
+                 style={{'--animation-delay': '0.3s'}}>
+              <div className="timeline-marker">
+                <FaGraduationCap />
               </div>
-              <div className="meta-item">
-                <span className="meta-label">Section</span>
-                <span className="meta-value">3A</span>
-              </div>
-              <div className="meta-item">
-                <span className="meta-label">Academic Period</span>
-                <span className="meta-value">2022 - 2026</span>
+              <div className="timeline-content">
+                <div className="timeline-period">2021 - 2023</div>
+                <h4>Iloilo National High School</h4>
+                <p className="institution">Senior High School</p>
+                <div className="achievements">
+                  <div className="achievement-item">
+                    <FaStar className="achievement-icon" />
+                    <span>With High Honors - 2021-2022</span>
+                  </div>
+                  <div className="achievement-item">
+                    <FaStar className="achievement-icon" />
+                    <span>With High Honors - 2022-2023</span>
+                  </div>
+                  <div className="achievement-item special">
+                    <FaStar className="achievement-icon" />
+                    <span>Outstanding in ICT - 2022-2023</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="education-progress">
-              <div className="progress-label">Academic Journey Progress</div>
-              <div className="progress-bar">
-                <div className="progress-fill" style={{'--progress': '75%'}}></div>
+
+            {/* Junior High School */}
+            <div className={`timeline-item slide-up ${educationVisible ? 'visible' : ''}`} 
+                 style={{'--animation-delay': '0.5s'}}>
+              <div className="timeline-marker">
+                <FaGraduationCap />
               </div>
-              <span className="progress-text">75% Complete</span>
+              <div className="timeline-content">
+                <div className="timeline-period">2019 - 2021</div>
+                <h4>Iloilo National High School</h4>
+                <p className="institution">School of the Future - Junior High School</p>
+                <div className="achievements">
+                  <div className="achievement-item">
+                    <FaStar className="achievement-icon" />
+                    <span>With Honors - 2019-2020</span>
+                  </div>
+                  <div className="achievement-item">
+                    <FaStar className="achievement-icon" />
+                    <span>With Honors - 2020-2021</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
