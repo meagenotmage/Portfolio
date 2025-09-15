@@ -1,4 +1,4 @@
-# 🌟 Meage Sionosa - Personal Portfolio
+# Meage Sionosa - Personal Portfolio
 
 Welcome to my personal portfolio website! This is a modern, responsive React application showcasing my skills, projects, and journey as a BSCS student at West Visayas State University.
 
