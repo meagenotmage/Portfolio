@@ -669,7 +669,7 @@
 
 .cta-content h3 {
   font-size: 1.8rem;
-  color: var(--primary-green);
+  color: var(--soft-green);
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -677,7 +677,7 @@
 .cta-content p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--medium-gray);
+  color: var(--white);
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;

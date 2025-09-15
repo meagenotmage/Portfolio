@@ -10,9 +10,9 @@ import './Projects.css';
 const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.2, triggerOnce: false });
-  const [filtersRef, filtersVisible] = useScrollAnimation({ threshold: 0.2, delay: 200, triggerOnce: false });
-  const [projectsRef, projectsVisible] = useScrollAnimation({ threshold: 0.1, delay: 400, triggerOnce: false });
-  const [ctaRef, ctaVisible] = useScrollAnimation({ threshold: 0.2, delay: 600, triggerOnce: false });
+  const [filtersRef, filtersVisible] = useScrollAnimation({ threshold: 0.2, delay: 100, triggerOnce: false });
+  const [projectsRef, projectsVisible] = useScrollAnimation({ threshold: 0.1, delay: 200, triggerOnce: false });
+  const [ctaRef, ctaVisible] = useScrollAnimation({ threshold: 0.2, delay: 300, triggerOnce: false });
 
   const projects = [
     {
@@ -36,18 +36,19 @@ const Projects = () => {
       category: 'web',
       status: 'completed',
       features: ['Responsive Design', 'Different Merch', 'Deals and Offers', 'Organization Products'],
+      liveDemo: '#',
       github: '#'
     },
     {
       id: 3,
-      title: 'Photo Gallery',
+      title: 'College of Communication Website',
       description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
       image: <FaCamera />,
       technologies: ['HTML', 'CSS', 'JavaScript'],
-      category: 'creative',
-      status: 'completed',
+      category: 'web',
+      status: 'in progress',
       features: ['Image Gallery', 'Lightbox Effect', 'Responsive Grid', 'Optimized Loading'],
-      liveDemo: '#'
+      github: '#'
     },
     {
       id: 4,
@@ -56,8 +57,9 @@ const Projects = () => {
       image: <FaTasks />,
       technologies: ['HTML', 'CSS', 'JavaScript'],
       category: 'web',
-      status: 'in-progress',
+      status: 'completed',
       features: ['Drag & Drop', 'Progress Tracking', 'User Dashboard', 'Real-time Updates'],
+      liveDemo: '#',
       github: '#'
     },
     {
@@ -67,18 +69,18 @@ const Projects = () => {
       image: <FaBicycle />,
       technologies: ['Python', 'GPS API', 'Charts.js'],
       category: 'web',
-      status: 'planning',
+      status: 'completed',
       features: ['GPS Integration', 'Route Mapping', 'Performance Analytics', 'Social Sharing'],
       github: '#'
     },
     {
       id: 6,
-      title: 'Video Editing',
+      title: 'Video Editing showcase',
       description: 'A collection of my video editing projects including travel vlogs, promotional videos, and creative short films.',
       image: <FaVideo />,
       technologies: ['Adobe Premiere', 'After Effects', 'DaVinci Resolve', 'Capcut'],
       category: 'creative',
-      status: 'completed',
+      status: 'planning',
       features: ['Color Grading', 'Motion Graphics', 'Audio Mixing', 'Creative Storytelling'],
       liveDemo: '#'
     }
@@ -99,10 +101,11 @@ const Projects = () => {
     const statusConfig = {
       completed: { label: 'Completed', color: 'var(--primary-green)' },
       'in-progress': { label: 'In Progress', color: '#FF9800' },
+      'in progress': { label: 'In Progress', color: '#FF9800' },
       planning: { label: 'Planning', color: '#2196F3' }
     };
 
-    const config = statusConfig[status];
+    const config = statusConfig[status] || { label: 'Unknown', color: '#757575' };
     return (
       <span 
         className="status-badge" 
@@ -143,7 +146,7 @@ const Projects = () => {
             <div 
               key={project.id} 
               className={`project-card slide-up stagger-animation ${projectsVisible ? 'visible' : ''}`}
-              style={{'--animation-delay': `${index * 0.1}s`}}
+              style={{'--animation-delay': `${index * 0.05}s`}}
             >
               <div className="project-header">
                 <div className="project-image">

@@ -250,11 +250,15 @@
 }
 
 /* Learning Journey */
+/* Learning Journey Roadmap Styles */
 .learning-journey {
   background: linear-gradient(135deg, var(--white), var(--soft-green));
   border-radius: 20px;
   padding: 3rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-top: 3rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .journey-title {
@@ -268,38 +272,325 @@
   font-weight: 600;
 }
 
-.journey-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
-  align-items: center;
+.roadmap-container {
+  position: relative;
+  padding: 2rem 0;
 }
 
-.journey-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+.roadmap-path {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Simplified animated path using SVG-like effect */
+.roadmap-path::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 4px;
+  height: 80%;
+  background: linear-gradient(180deg, 
+    var(--primary-green) 0%, 
+    var(--accent-green) 50%, 
+    rgba(76, 175, 80, 0.3) 100%
+  );
+  transform: translateX(-50%);
+  animation: pathGlow 3s ease-in-out infinite;
+  z-index: 0;
+  border-radius: 2px;
+}
+
+.roadmap-path::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 2px;
+  height: 80%;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  animation: pathShine 2s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes pathGlow {
+  0%, 100% { 
+    opacity: 0.6; 
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+  }
+  50% { 
+    opacity: 1; 
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+  }
+}
+
+@keyframes pathShine {
+  0% { opacity: 0.8; transform: translateX(-50%) scaleY(1); }
+  100% { opacity: 0.4; transform: translateX(-50%) scaleY(1.02); }
+}
+
+.milestone {
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px) scale(0.8);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.milestone.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Alternating layout for visual variety */
+.milestone:nth-child(odd) {
+  flex-direction: row;
+  text-align: left;
+}
+
+.milestone:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.milestone:nth-child(1) { 
+  transition-delay: 0.2s;
+}
+.milestone:nth-child(2) { 
+  transition-delay: 0.4s;
+}
+.milestone:nth-child(3) { 
+  transition-delay: 0.6s;
+}
+.milestone:nth-child(4) { 
+  transition-delay: 0.8s;
+}
+.milestone:nth-child(5) { 
+  transition-delay: 1s;
+}
+
+.milestone-marker {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  z-index: 10;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.milestone-marker::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+  animation: markerSpin 4s linear infinite;
+}
+
+@keyframes markerSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.milestone.current .milestone-marker {
+  background: linear-gradient(135deg, var(--accent-gold), #FFD700);
+  color: white;
+  animation: currentGlow 2s ease-in-out infinite;
+  box-shadow: 0 20px 40px rgba(255, 193, 7, 0.5);
+}
+
+.milestone.completed .milestone-marker {
+  background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+  color: white;
+  animation: completedPulse 3s ease-in-out infinite;
+}
+
+.milestone.future .milestone-marker {
+  background: linear-gradient(135deg, #9E9E9E, #BDBDBD);
+  color: white;
+  opacity: 0.8;
+  animation: futureBreathe 4s ease-in-out infinite;
+}
+
+@keyframes currentGlow {
+  0%, 100% {
+    box-shadow: 0 20px 40px rgba(255, 193, 7, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 25px 50px rgba(255, 193, 7, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes completedPulse {
+  0%, 100% {
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.4);
+  }
+  50% {
+    box-shadow: 0 20px 45px rgba(76, 175, 80, 0.6);
+  }
+}
+
+@keyframes futureBreathe {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.milestone:hover .milestone-marker {
+  transform: scale(1.15);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.milestone-content {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  transition: all 0.5s ease;
+  border: 2px solid transparent;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  margin: 0 2rem;
+  flex-shrink: 0;
+}
+
+.milestone:nth-child(odd) .milestone-content {
+  margin-left: 2rem;
+  margin-right: 0;
+}
+
+.milestone:nth-child(even) .milestone-content {
+  margin-right: 2rem;
+  margin-left: 0;
+}
+
+.milestone:hover .milestone-content {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent-green);
+  background: rgba(255, 255, 255, 1);
+}
+
+.milestone-content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  transform: translateY(-50%);
+}
+
+.milestone:nth-child(odd) .milestone-content::before {
+  right: -30px;
+  border-left-color: rgba(255, 255, 255, 0.95);
+}
+
+.milestone:nth-child(even) .milestone-content::before {
+  left: -30px;
+  border-right-color: rgba(255, 255, 255, 0.95);
+}
+
+.milestone-content h4 {
+  font-size: 1.4rem;
+  color: var(--primary-green);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.milestone-content p {
+  font-size: 1rem;
   color: var(--medium-gray);
-  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.milestone-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.milestone-tech span {
+  background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  animation: techTagFloat 3s ease-in-out infinite;
+}
+
+.milestone-tech span:nth-child(1) { animation-delay: 0s; }
+.milestone-tech span:nth-child(2) { animation-delay: 0.5s; }
+.milestone-tech span:nth-child(3) { animation-delay: 1s; }
+
+@keyframes techTagFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+.milestone.future .milestone-tech span {
+  background: linear-gradient(135deg, #9E9E9E, #BDBDBD);
 }
 
 .journey-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .stat-item {
   text-align: center;
   padding: 1.5rem;
   background: var(--white);
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
 .stat-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent-green);
 }
 
 .stat-number {
@@ -359,9 +650,88 @@
     padding: 2rem;
   }
 
-  .journey-stats {
+  /* Roadmap Mobile Styles */
+  .roadmap-path {
+    min-height: auto;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+
+  .roadmap-path::before {
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(180deg, 
+      var(--primary-green) 0%, 
+      var(--accent-green) 50%, 
+      rgba(76, 175, 80, 0.3) 100%
+    );
+    animation: mobilePathGlow 3s ease-in-out infinite;
+  }
+
+  .roadmap-path::after {
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 1px;
+  }
+
+  @keyframes mobilePathGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .milestone {
+    flex-direction: row !important;
+    text-align: left !important;
+    width: 100%;
+    max-width: none;
+    justify-content: flex-start;
+    margin: 1.5rem 0;
+  }
+
+  .milestone:nth-child(odd),
+  .milestone:nth-child(even) {
+    flex-direction: row !important;
+    text-align: left !important;
+  }
+
+  .milestone-marker {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .milestone-content {
+    width: calc(100% - 100px);
+    margin-left: 80px !important;
+    margin-right: 0 !important;
+    padding: 1.5rem;
+  }
+
+  .milestone-content::before {
+    left: -15px !important;
+    right: auto !important;
+    top: 50% !important;
+    border-left-color: transparent !important;
+    border-right-color: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  .milestone:hover .milestone-content {
+    transform: translateY(-5px);
+  }
+
+  .milestone-tech {
+    justify-content: flex-start !important;
+  }
+
+  .journey-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 }
 
@@ -373,6 +743,33 @@
   .skill-card,
   .soft-skill-card {
     padding: 1.5rem;
+  }
+
+  .learning-journey {
+    padding: 1.5rem;
+  }
+
+  .milestone-content {
+    padding: 1.5rem;
+  }
+
+  .milestone-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .milestone-marker {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .journey-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 1rem;
   }
 
   .soft-skills-title,
