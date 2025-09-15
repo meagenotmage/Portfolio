@@ -17,8 +17,8 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Personal Portfolio Website',
-      description: 'A responsive portfolio website built with React showcasing my skills, projects, and personality. Features smooth animations and a clean green color scheme.',
+      title: 'Haribon: Harmful Algal Bloom Detection',
+      description: 'A early detection for harmful algal bloom around the coastal areas of Western Visayas',
       image: <FaGlobe />,
       technologies: ['React', 'CSS3', 'JavaScript'],
       category: 'web',
@@ -29,8 +29,8 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Student Management System',
-      description: 'A Java-based desktop application for managing student records with MySQL database integration. Features CRUD operations and user authentication.',
+      title: 'LINK.exe - IGP Merch Website',
+      description: 'Link.exe IGP Merch Website.',
       image: <FaDesktop />,
       technologies: ['Java', 'MySQL', 'Swing'],
       category: 'desktop',
@@ -40,7 +40,7 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Photography Portfolio',
+      title: 'Reality 13: Metropolis',
       description: 'A showcase of my photography work featuring nature, travel, and lifestyle shots. Built with responsive design and image optimization.',
       image: <FaCamera />,
       technologies: ['HTML', 'CSS', 'JavaScript'],
