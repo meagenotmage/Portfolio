@@ -24,7 +24,7 @@
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
   gap: 2rem;
-  padding: 4rem 0 2rem 0;
+  padding: 4rem 2rem 2rem 2rem;
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
@@ -271,7 +271,7 @@
 /* Footer Bottom */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem 0;
+  padding: 2rem;
   position: relative;
 }
 
@@ -281,6 +281,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .copyright {
@@ -361,7 +363,7 @@
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    padding: 3rem 0 2rem 0;
+    padding: 3rem 1.5rem 2rem 1.5rem;
   }
 }
 
@@ -369,7 +371,7 @@
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 3rem 0 1.5rem 0;
+    padding: 3rem 1rem 1.5rem 1rem;
   }
 
   .footer-brand {
@@ -409,7 +411,11 @@
   }
 
   .footer-content {
-    padding: 3rem 0 1.5rem 0;
+    padding: 3rem 1rem 1.5rem 1rem;
+  }
+
+  .footer-bottom {
+    padding: 2rem 1rem;
   }
 
   .tech-tags {

@@ -227,24 +227,6 @@ const Projects = () => {
             </div>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div ref={ctaRef} className={`projects-cta slide-up ${ctaVisible ? 'visible' : ''}`}>
-          <div className="cta-content">
-            <h3>Interested in My Work?</h3>
-            <p>
-              I'm always excited to discuss my projects and explore new opportunities. 
-              Let's connect and see how we can work together!
-            </p>
-            <button 
-              className="btn btn-primary"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <FaEnvelope className="btn-icon" />
-              Get In Touch
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
