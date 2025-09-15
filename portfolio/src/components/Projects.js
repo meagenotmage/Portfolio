@@ -18,71 +18,72 @@ const Projects = () => {
     {
       id: 1,
       title: 'Haribon: Harmful Algal Bloom Detection',
-      description: 'A early detection for harmful algal bloom around the coastal areas of Western Visayas',
-      image: <FaGlobe />,
+      description: 'An early detection system for harmful algal bloom around the coastal areas of Western Visayas using AI forecasting technology.',
+      image: '/images/Dashboard.png',
       technologies: ['React + Vite', 'CSS', 'Python'],
       category: 'web',
       status: 'completed',
       features: ['Responsive Design', 'Smooth Animations', 'AI Forecasting', 'Modern UI/UX'],
-      liveDemo: '#',
-      github: '#'
+      github: 'https://github.com/athenavillarin/AIHackathon2025_BadmintonGirls_HARIBON'
     },
     {
       id: 2,
       title: 'LINK.exe - IGP Merch',
-      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.',
-      image: <FaDesktop />,
+      description: 'E-commerce platform for organization merchandise featuring responsive design, product catalog, and secure checkout system.',
+      image: '/images/igp.png',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       category: 'web',
       status: 'completed',
       features: ['Responsive Design', 'Different Merch', 'Deals and Offers', 'Organization Products'],
-      liveDemo: '#',
-      github: '#'
+      liveDemo: 'https://sionosa-final-website.netlify.app/',
+      github: 'https://github.com/meagenotmage/website_IGP-LINK.exe'
     },
     {
       id: 3,
       title: 'College of Communication Website',
-      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      image: <FaCamera />,
+      description: 'Modern college website featuring image gallery, responsive grid layout, and optimized loading for better user experience.',
+      image: '/images/coc.png',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       category: 'web',
       status: 'in progress',
       features: ['Image Gallery', 'Lightbox Effect', 'Responsive Grid', 'Optimized Loading'],
-      github: '#'
+      liveDemo: null,
+      github: 'https://github.com/meagenotmage/cocwebsite/tree/main'
     },
     {
       id: 4,
       title: 'Reality 13: Metropolis Website',
-      description: 'A productivity web application for managing daily tasks and projects. Features drag-and-drop functionality and progress tracking.',
-      image: <FaTasks />,
+      description: 'Interactive website for Reality 13 featuring modern design, smooth animations, and engaging user interface.',
+      image: '/images/reality.png',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       category: 'web',
       status: 'completed',
       features: ['Drag & Drop', 'Progress Tracking', 'User Dashboard', 'Real-time Updates'],
-      liveDemo: '#',
-      github: '#'
+      liveDemo: 'https://metropolis-nine.vercel.app/',
+      github: 'https://github.com/meagenotmage/reality13'
     },
     {
       id: 5,
       title: 'Pathfinding using A* Algorithm at WVSU',
-      description: 'A mobile-friendly web app for tracking cycling routes and performance. Integrates with GPS for real-time location tracking.',
-      image: <FaBicycle />,
+      description: 'Smart pathfinding system for WVSU campus using A* algorithm with GPS integration and real-time navigation.',
+      image: '/images/dsa.jpg',
       technologies: ['Python', 'GPS API', 'Charts.js'],
       category: 'web',
       status: 'completed',
       features: ['GPS Integration', 'Route Mapping', 'Performance Analytics', 'Social Sharing'],
-      github: '#'
+      liveDemo: null,
+      github: 'https://github.com/meagenotmage/DSA-A-Final-Project'
     },
     {
       id: 6,
-      title: 'Video Editing showcase',
-      description: 'A collection of my video editing projects including travel vlogs, promotional videos, and creative short films.',
-      image: <FaVideo />,
+      title: 'Video Editing Showcase',
+      description: 'Professional video editing portfolio featuring travel vlogs, promotional videos, and creative short films with high-quality production.',
+      image: '/images/projects/placeholder.svg',
       technologies: ['Adobe Premiere', 'After Effects', 'DaVinci Resolve', 'Capcut'],
       category: 'creative',
       status: 'planning',
       features: ['Color Grading', 'Motion Graphics', 'Audio Mixing', 'Creative Storytelling'],
-      liveDemo: '#'
+      github: null
     }
   ];
 
@@ -150,7 +151,15 @@ const Projects = () => {
             >
               <div className="project-header">
                 <div className="project-image">
-                  <span className="project-icon">{project.image}</span>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="project-img"
+                    onError={(e) => {
+                      // Fallback to a default placeholder if image fails to load
+                      e.target.src = '/images/projects/placeholder.svg';
+                    }}
+                  />
                   <div className="project-overlay">
                     <div className="overlay-content">
                       <span className="overlay-text">View Details</span>
@@ -180,17 +189,38 @@ const Projects = () => {
                 </div>
 
                 <div className="project-actions">
-                  {project.liveDemo && (
-                    <a href={project.liveDemo} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                  {project.liveDemo ? (
+                    <a 
+                      href={project.liveDemo} 
+                      className="btn btn-primary" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
                       <FaExternalLinkAlt className="btn-icon" />
                       <span>Live Demo</span>
                     </a>
+                  ) : (
+                    <button className="btn btn-primary" disabled>
+                      <FaRocket className="btn-icon" />
+                      <span>Coming Soon</span>
+                    </button>
                   )}
-                  {project.github && (
-                    <a href={project.github} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                  
+                  {project.github ? (
+                    <a 
+                      href={project.github} 
+                      className="btn btn-outline" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
                       <FaGithub className="btn-icon" />
                       <span>View Code</span>
                     </a>
+                  ) : (
+                    <button className="btn btn-outline" disabled>
+                      <FaCode className="btn-icon" />
+                      <span>Private</span>
+                    </button>
                   )}
                 </div>
               </div>
