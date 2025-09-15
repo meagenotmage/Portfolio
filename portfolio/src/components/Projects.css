@@ -285,7 +285,7 @@
 }
 
 .cta-content .btn:hover {
-  background: var(--light-gray);
+  background: var(--white);
   transform: translateY(-2px);
 }
 

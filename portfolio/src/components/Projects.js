@@ -29,8 +29,8 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'LINK.exe - IGP Merch Website',
-      description: 'Link.exe IGP Merch Website.',
+      title: 'LINK.exe - IGP Merch',
+      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.',
       image: <FaDesktop />,
       technologies: ['Java', 'MySQL', 'Swing'],
       category: 'desktop',
@@ -40,8 +40,8 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Reality 13: Metropolis',
-      description: 'A showcase of my photography work featuring nature, travel, and lifestyle shots. Built with responsive design and image optimization.',
+      title: 'Photography Portfolio',
+      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
       image: <FaCamera />,
       technologies: ['HTML', 'CSS', 'JavaScript'],
       category: 'creative',
