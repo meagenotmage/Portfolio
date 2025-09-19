@@ -187,20 +187,10 @@ Update CSS variables in `src/App.css`:
 
 ## 🚀 Deployment
 
-### Netlify (Recommended)
-1. Build the project: `npm run build`
-2. Deploy the `build` folder to Netlify
-3. Configure custom domain (optional)
-
 ### Vercel
 1. Connect your GitHub repository
 2. Configure build settings
 3. Deploy automatically on push
-
-### GitHub Pages
-1. Install gh-pages: `npm install --save-dev gh-pages`
-2. Add deploy scripts to package.json
-3. Run: `npm run deploy`
 
 ## 🤝 Contributing
 
@@ -213,10 +203,10 @@ Update CSS variables in `src/App.css`:
 ## 📞 Contact
 
 **Meage Sionosa**
-- 📧 Email: [your.email@example.com]
-- 🌐 LinkedIn: [your-linkedin-profile]
+- 📧 Email: meagelleinerosesionosa@gmail.com
+- 🌐 LinkedIn: 
 - 🐙 GitHub: [meagenotmage](https://github.com/meagenotmage)
-- 📱 Portfolio: [your-portfolio-url]
+- 📱 Portfolio: meage-portfolio.vercel.app
 
 ## 📄 License
 
@@ -228,6 +218,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - **FontAwesome** - For the beautiful icons
 - **Google Fonts** - For the typography
 - **Open Source Community** - For inspiration and resources
+- **To my baby** - For encouraging me
 
 ---
 
